@@ -6,13 +6,13 @@ export default function Header({ theme, setTheme }) {
   const showBack = location.pathname !== '/';
 
   return (
-    <div className="d-flex justify-content-between align-items-center flex-wrap px-3 py-3 header-bar">
+    <div className="d-flex justify-content-between align-items-center flex-wrap px-3 py-3 header-bar position-relative">
       {showBack ? (
         <button
-          className={`btn ${theme === 'dark' ? 'btn-outline-light' : 'btn-outline-dark'} me-2`}
+          className={`btn back-btn ${theme === 'dark' ? 'btn-outline-light' : 'btn-outline-dark'}`}
           onClick={() => navigate(-1)}
         >
-          ← Back
+          ← <span className="d-none d-sm-inline">Back</span>
         </button>
       ) : (
         <div style={{ width: '85px' }} /> // Spacer
@@ -22,9 +22,13 @@ export default function Header({ theme, setTheme }) {
 
       <button
         onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-        className="algo-btn ms-auto"
+        className="algo-btn theme-toggle"
+        title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
       >
-        {theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode'}
+        {theme === 'dark' ? '☀️' : '🌙'}
+        <span className="d-none d-sm-inline ms-2">
+          {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+        </span>
       </button>
     </div>
   );

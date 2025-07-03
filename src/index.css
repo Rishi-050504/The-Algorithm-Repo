@@ -1,7 +1,7 @@
 :root {
   --background-color: #000000;
   --text-color: #f1f5f9;
-  --box-bg: #111827; /* darker slate */
+  --box-bg: #111827;
   --box-hover: #3b82f6;
   --border-color: #1f2937;
 }
@@ -36,8 +36,6 @@ body {
   margin-bottom: 1.5rem;
 }
 
-
-
 /* Topic Boxes */
 .topic-box {
   background-color: var(--box-bg);
@@ -49,11 +47,15 @@ body {
   padding: 1.5rem;
   height: 120px;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.3s ease;
-  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  text-align: center;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  overflow-wrap: break-word;
 }
 
 .topic-box:hover {
@@ -63,14 +65,13 @@ body {
   cursor: pointer;
 }
 
-/* Icons */
 .topic-box svg {
   width: 1.8em;
   height: 1.8em;
   margin-bottom: 0.4rem;
 }
 
-/* Toggle & Buttons */
+/* Buttons */
 .algo-btn {
   background-color: #1e40af;
   color: #ffffff;
@@ -85,16 +86,6 @@ body {
   background-color: #2563eb;
   transform: scale(1.05);
   border-color: #60a5fa;
-}
-
-/* Header */
-.header-container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
 }
 
 /* Footer */
@@ -115,11 +106,19 @@ body {
   color: var(--box-hover);
 }
 
-/* Mobile Fix */
+/* Visitor Counter */
+.visitor-count {
+  color: var(--text-color);
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* Responsive Mobile Fixes */
 @media (max-width: 576px) {
   .topic-box {
-    font-size: 1rem;
-    height: 100px;
+    font-size: 0.95rem;
+    height: auto;
     padding: 1rem;
   }
 
@@ -135,5 +134,9 @@ body {
     flex-direction: column;
     align-items: center !important;
     gap: 0.5rem;
+  }
+
+  .visitor-count {
+    font-size: 0.85rem;
   }
 }

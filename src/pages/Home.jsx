@@ -22,12 +22,12 @@ import {
   getFirestore,
   doc,
   getDoc,
-  setDoc,        // ✅ Add this
+  setDoc,
   updateDoc,
   increment
 } from 'firebase/firestore';
 
-import app from '/src/firebase'; // your initialized firebase app
+import app from '/src/firebase';
 
 const topics = [
   'Searching',
@@ -68,29 +68,27 @@ export default function Home() {
   const [visitorCount, setVisitorCount] = useState(0);
 
   useEffect(() => {
+    const isHomePage = window.location.pathname === '/';
+    if (!isHomePage) return;
+
     const db = getFirestore(app);
     const countRef = doc(db, 'analytics', 'visitorCount');
 
     const updateVisitorCount = async () => {
-  const db = getFirestore(app);
-  const countRef = doc(db, 'analytics', 'visitorCount');
-
-  try {
-    const docSnap = await getDoc(countRef);
-    if (docSnap.exists()) {
-      await updateDoc(countRef, {
-        count: increment(1)
-      });
-      const updatedSnap = await getDoc(countRef);
-      setVisitorCount(updatedSnap.data().count);
-    } else {
-      await setDoc(countRef, { count: 1 });
-      setVisitorCount(1);
-    }
-  } catch (err) {
-    console.error("Visitor count error:", err);
-  }
-};
+      try {
+        const docSnap = await getDoc(countRef);
+        if (docSnap.exists()) {
+          await updateDoc(countRef, { count: increment(1) });
+          const updatedSnap = await getDoc(countRef);
+          setVisitorCount(updatedSnap.data().count);
+        } else {
+          await setDoc(countRef, { count: 1 });
+          setVisitorCount(1);
+        }
+      } catch (err) {
+        console.error("Visitor count error:", err);
+      }
+    };
 
     updateVisitorCount();
   }, []);
@@ -101,7 +99,6 @@ export default function Home() {
 
   return (
     <div className="min-vh-100 d-flex flex-column justify-content-between px-3 py-5">
-
       <div>
         <div className="container mb-4">
           <p className="fs-5 fw-light text-start">
@@ -122,9 +119,9 @@ export default function Home() {
                 className="col-6 col-sm-4 col-md-3"
                 onClick={() => handleClick(topic)}
               >
-                <div className="topic-box d-flex flex-column align-items-center justify-content-center">
+                <div className="topic-box d-flex flex-column align-items-center justify-content-center text-center">
                   <div className="mb-2 fs-3">{icons[topic]}</div>
-                  {topic}
+                  <span>{topic}</span>
                 </div>
               </div>
             ))}
@@ -137,17 +134,16 @@ export default function Home() {
         <p className="mb-2">Contact</p>
         <div className="d-flex justify-content-center gap-3 mb-3">
           <a href="mailto:reshyendravenaganti@gmail.com" target="_blank" rel="noopener noreferrer">
-            <i className="fa-solid fa-envelope fa-lg" style={{ color: 'var(--text-color)' }}></i>
+            <i className="fa-solid fa-envelope fa-lg"></i>
           </a>
           <a href="https://www.linkedin.com/in/reshyendravenaganti/" target="_blank" rel="noopener noreferrer">
-            <i className="fa-brands fa-linkedin fa-lg" style={{ color: 'var(--text-color)' }}></i>
+            <i className="fa-brands fa-linkedin fa-lg"></i>
           </a>
         </div>
 
-        {/* Visitor Counter */}
         <div className="visitor-count d-flex justify-content-center align-items-center gap-2 mt-2">
-          <FaUser className="fs-5 text-light" />
-          <span className="text-light">{visitorCount}</span>
+          <FaUser className="fs-5" />
+          <span>{visitorCount}</span>
         </div>
       </footer>
     </div>
