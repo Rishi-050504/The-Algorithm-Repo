@@ -1,12 +1,33 @@
-# React + Vite
+The Algorithm Repo is a personal project designed to simplify the revision process for Data Structures and Algorithms (DSA). It compiles the most important algorithms, categorized by topics, in a clean and intuitive web interface.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+💡 Tired of jumping between blogs, videos, and textbooks just to revise that one algorithm before an interview? This site brings everything you need — in one place.
 
-Currently, two official plugins are available:
+🔍 Features
+🔗 Covers core DSA topics like Sorting, Searching, Graphs, Trees, Dynamic Programming, Bit Manipulation, and more.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+💡 Each algorithm includes:
 
-## Expanding the ESLint configuration
+Short explanation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Code in Java and C++
+
+Sample input/output
+
+Time and space complexities
+
+🌗 Dark/Light theme toggle
+
+📱 Fully responsive UI for mobile and desktop
+
+👥 Visitor counter integrated using Firebase
+
+⚡ Built with React + Vite, deployed on Vercel
+
+📌 Tech Stack
+Frontend: React.js, Bootstrap, Vite
+
+Icons & Styling: React Icons, Custom CSS
+
+Backend: Firebase Firestore (for analytics)
+
+Deployment: Vercel
