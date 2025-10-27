@@ -102,9 +102,9 @@ export default function Home() {
       <div>
         <div className="container mb-4">
           <p className="fs-5 fw-light text-start">
-            <strong>Hi, I’m Reshyendra 👋</strong>
+            <strong>Hi, We're Rishi, Omkar and Srujan 👋</strong>
             <br />
-            Final-year undergraduate in Computer Science and Business Systems, with a strong interest in problem-solving, algorithms, and system design.
+            Final-year undergraduates in Computer Science and Business Systems, with a strong interest in problem-solving, algorithms, and system design.
             This platform is a personal initiative to consolidate and share my learning journey in Data Structures Algorithms and competitive programming—organized in a way that's accessible and helpful to others preparing for interviews or exploring algorithmic concepts.
             <br />
             This website is created with the assumption that you are already familiar with basic programming in either Java or C++. To get the maximum clarity and truly understand the logic behind each concept, I strongly encourage you to use pen and paper while going through the material.
